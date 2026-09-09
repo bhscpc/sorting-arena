@@ -1,0 +1,16 @@
+node_modules/
+jspm_packages/
+
+
+dist/
+out/
+build/
+
+*.tsbuildinfo
+
+*.log
+.env
+.env.local
+
+.DS_Store
+Thumbs.db
