@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sorting Arena</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="favicon.png">
+    </head>
+    <body>
+        <header>
+            <h1>BHS Competitive Programming Club: Sorting Arena</h1>
+            <pre>
+How to use:
+
+0. Select your two sorting algorithms
+
+1. Enter the size of the array you want to sort (between 1 and 1000).
+
+2. Enter the speed of the sorting process (delay between each operation).
+
+3. Click "Start Sorting" to begin the sorting process.
+            </pre>
+            <div id="sorting-algorithms">
+                <label for="algorithm1">Competitor 1</label>
+                <select id="algorithm1">
+                    <option value="bubbleSort">Bubble Sort</option>
+                    <option value="selectionSort">Selection Sort</option>
+                    <option value="insertionSort">Insertion Sort</option>
+                    <option value="mergeSort">Merge Sort</option>
+                    <option value="quickSort">Quick Sort</option>
+                </select>
+
+                <label for="algorithm2">Competitor 2</label>
+                <select id="algorithm2">
+                    <option value="bubbleSort">Bubble Sort</option>
+                    <option value="selectionSort">Selection Sort</option>
+                    <option value="insertionSort">Insertion Sort</option>
+                    <option value="mergeSort">Merge Sort</option>
+                    <option value="quickSort">Quick Sort</option>
+                </select>
+            </div>
+            <div id="settings">
+                <label for="arraySize">Array Size</label>
+                <input type="number" id="arraySize" placeholder="Array Size" min="1" max="1000"><br>
+                <label for="speed">Speed (ms)</label>
+                <input type="number" id="speed" placeholder="Speed (ms)" min="1">
+            </div>
+            <div class="controls">
+                <button id="startButton">Start Sorting</button>
+                <button id="resetButton">Reset</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="slot1">
+                <canvas id="sortingCanvas1" width="800" height="400"></canvas>
+            </div>
+            <div id="slot2">
+                <canvas id="sortingCanvas2" width="800" height="400"></canvas>
+            </div>
+        </main>
+
+        <footer>
+            Created by <a href="https://github.com/Ash-ioL">Ash-ioL</a> :D
+        </footer>
+
+        <script type="module" src="main.js"></script>
+    </body>
+</html>
