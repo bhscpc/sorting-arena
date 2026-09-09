@@ -118,6 +118,8 @@ function manageInputs() {
             leftCompetitors[i]!.initialize(arraySize.valueAsNumber, parseInt(speed.value));
             rightCompetitors[i]!.initialize(arraySize.valueAsNumber, parseInt(speed.value));
         }
+        drawCanvas(true, leftCompetitor);
+        drawCanvas(false, rightCompetitor);
     });
 
     start.addEventListener("click", () => {
