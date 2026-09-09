@@ -1,4 +1,5 @@
 import * as Alg from "./algorithms";
+import { RaceManager } from "./RaceManager";
 
 const leftCompetitors: Alg.SortingAlgorithm[] = [
     new Alg.BubbleSort(),
@@ -24,6 +25,8 @@ let state = "setting";
 
 let leftCompetitor: Alg.SortingAlgorithm = leftCompetitors[0]!;
 let rightCompetitor: Alg.SortingAlgorithm = rightCompetitors[0]!;
+
+
 
 function manageInputs() {
     const competitor1 = document.getElementById("competitor1") as HTMLInputElement;
@@ -111,7 +114,8 @@ function manageInputs() {
         }
     });
 
-    button.addEventListener("click", () => {
-        state = "running";
+    start.addEventListener("click", () => {
+        let manager = new RaceManager(leftCompetitor, rightCompetitor);
+        manager.startRace();
     });
 }
