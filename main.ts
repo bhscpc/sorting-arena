@@ -56,11 +56,15 @@ function manageInputs() {
         arraySize.value = "50";
         competitor1.value = "Bubble Sort";
         competitor2.value = "Bubble Sort";
+        rightCompetitor = rightCompetitors[0]!;
+        leftCompetitor = leftCompetitors[0]!;
     } else {
         speed.value = localStorage.getItem("speed") as string;
         arraySize.value = localStorage.getItem("arraySize") as string;
         competitor1.value = localStorage.getItem("competitor1") as string;
         competitor2.value = localStorage.getItem("competitor2") as string;
+        rightCompetitor = rightCompetitors[0]!;
+        leftCompetitor = leftCompetitors[0]!;
     }
 
     reset.addEventListener("click", () => {
@@ -72,6 +76,8 @@ function manageInputs() {
         arraySize.value = "50";
         competitor1.value = "Bubble Sort";
         competitor2.value = "Bubble Sort";
+        rightCompetitor = rightCompetitors[0]!;
+        leftCompetitor = leftCompetitors[0]!;
     });
 
     competitor1.addEventListener("change", () => {
