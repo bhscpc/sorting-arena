@@ -187,3 +187,8 @@ a {
     font-size: 2rem;
     z-index: 9999;
 }
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+}

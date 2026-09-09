@@ -16,12 +16,12 @@ export class RaceManager {
     async startRace() {
         document.getElementById("cover")!.classList.add("running");
         this.leftCompetitor.initialize(
-            parseInt(localStorage.getItem("arraySize")!),
-            parseInt(localStorage.getItem("speed")!)
+            parseInt(localStorage.getItem("arraySize") || "50"),
+            parseInt(localStorage.getItem("speed") || "1")
         );
         this.rightCompetitor.initialize(
-            parseInt(localStorage.getItem("arraySize")!),
-            parseInt(localStorage.getItem("speed")!)
+            parseInt(localStorage.getItem("arraySize") || "50"),
+            parseInt(localStorage.getItem("speed") || "1")
         );
         this.startTime = Date.now();
 

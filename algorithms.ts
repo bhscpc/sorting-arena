@@ -1,12 +1,17 @@
+import { drawCanvas } from "./main.js";
+
 export class SortingAlgorithm {
     delay: number;
     array: number[];
     speed: number;
+    left: boolean;
 
-    constructor() {
+    constructor(left: boolean) {
         this.delay = 0;
         this.array = [];
         this.speed = 1;
+        this.left = left;
+        this.initialize(50, 1);
     }
     async compare(a: number, b:number): Promise<number> {
         this.delay += 1;
@@ -19,6 +24,7 @@ export class SortingAlgorithm {
         await new Promise(resolve => setTimeout(resolve, this.speed*this.delay));
         this.delay = 0;
         this.array[index] = value;
+        drawCanvas(this.left, this);
     }
 
     async swap(index1: number, index2: number): Promise<void> {
@@ -31,7 +37,7 @@ export class SortingAlgorithm {
     initialize(arrSize: number, speed: number): void {
         this.array = new Array(arrSize);
         for (let i = 0; i < arrSize; i++) {
-            this.array[i] = i;
+            this.array[i] = i+1;
         }
         this.fisherYatesShuffle();
         this.speed = speed;
