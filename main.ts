@@ -35,6 +35,7 @@ let rightCompetitor: Alg.SortingAlgorithm = rightCompetitors[0]!;
 
 
 function manageInputs() {
+    let manager: RaceManager = new RaceManager(leftCompetitor, rightCompetitor);
     const competitor1 = document.getElementById("algorithm1") as HTMLInputElement;
     const competitor2 = document.getElementById("algorithm2") as HTMLInputElement;
     const arraySize = document.getElementById("arraySize") as HTMLInputElement;
@@ -68,6 +69,8 @@ function manageInputs() {
     }
 
     reset.addEventListener("click", () => {
+        if (manager.isRacing) window.location.reload();
+
         localStorage.setItem("competitor1", "Bubble Sort");
         localStorage.setItem("competitor2", "Bubble Sort");
         localStorage.setItem("arraySize", "50");
@@ -81,6 +84,8 @@ function manageInputs() {
     });
 
     competitor1.addEventListener("change", () => {
+        if (manager.isRacing) return;
+
         localStorage.setItem("competitor1", competitor1.value);
         let name: string = competitor1.value;
         let idx = -1;
@@ -96,6 +101,8 @@ function manageInputs() {
     });
 
     competitor2.addEventListener("change", () => {
+        if (manager.isRacing) return;
+
         localStorage.setItem("competitor2", competitor2.value);
         let name: string = competitor2.value;
         let idx = -1;
@@ -111,6 +118,8 @@ function manageInputs() {
     });
 
     speed.addEventListener("change", () => {
+        if (manager.isRacing) return;
+
         localStorage.setItem("speed", speed.value);
         for (let i = 0; i < leftCompetitors.length; i++) {
             leftCompetitors[i]!.speed = parseInt(speed.value);
@@ -119,6 +128,8 @@ function manageInputs() {
     });
 
     arraySize.addEventListener("change", () => {
+        if (manager.isRacing) return;
+
         localStorage.setItem("arraySize", arraySize.value);
         for (let i = 0; i < leftCompetitors.length; i++) {
             leftCompetitors[i]!.initialize(arraySize.valueAsNumber, parseInt(speed.value));
@@ -129,6 +140,8 @@ function manageInputs() {
     });
 
     start.addEventListener("click", () => {
+        if (manager.isRacing) return;
+
         let name: string = competitor1.value;
         let idx = -1;
         if (name == "Bubble Sort") idx = 0;
@@ -153,7 +166,7 @@ function manageInputs() {
 
         rightCompetitor = rightCompetitors[idx]!;
 
-        let manager = new RaceManager(leftCompetitor, rightCompetitor);
+        manager.setCompetitors(leftCompetitor, rightCompetitor);
         manager.startRace();
     });
 }

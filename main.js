@@ -25,6 +25,7 @@ let leftContext = leftCanvas.getContext("2d");
 let leftCompetitor = leftCompetitors[0];
 let rightCompetitor = rightCompetitors[0];
 function manageInputs() {
+    let manager = new RaceManager(leftCompetitor, rightCompetitor);
     const competitor1 = document.getElementById("algorithm1");
     const competitor2 = document.getElementById("algorithm2");
     const arraySize = document.getElementById("arraySize");
@@ -43,14 +44,20 @@ function manageInputs() {
         arraySize.value = "50";
         competitor1.value = "Bubble Sort";
         competitor2.value = "Bubble Sort";
+        rightCompetitor = rightCompetitors[0];
+        leftCompetitor = leftCompetitors[0];
     }
     else {
         speed.value = localStorage.getItem("speed");
         arraySize.value = localStorage.getItem("arraySize");
         competitor1.value = localStorage.getItem("competitor1");
         competitor2.value = localStorage.getItem("competitor2");
+        rightCompetitor = rightCompetitors[0];
+        leftCompetitor = leftCompetitors[0];
     }
     reset.addEventListener("click", () => {
+        if (manager.isRacing)
+            window.location.reload();
         localStorage.setItem("competitor1", "Bubble Sort");
         localStorage.setItem("competitor2", "Bubble Sort");
         localStorage.setItem("arraySize", "50");
@@ -59,8 +66,12 @@ function manageInputs() {
         arraySize.value = "50";
         competitor1.value = "Bubble Sort";
         competitor2.value = "Bubble Sort";
+        rightCompetitor = rightCompetitors[0];
+        leftCompetitor = leftCompetitors[0];
     });
     competitor1.addEventListener("change", () => {
+        if (manager.isRacing)
+            return;
         localStorage.setItem("competitor1", competitor1.value);
         let name = competitor1.value;
         let idx = -1;
@@ -81,6 +92,8 @@ function manageInputs() {
         leftCompetitor = leftCompetitors[idx];
     });
     competitor2.addEventListener("change", () => {
+        if (manager.isRacing)
+            return;
         localStorage.setItem("competitor2", competitor2.value);
         let name = competitor2.value;
         let idx = -1;
@@ -101,6 +114,8 @@ function manageInputs() {
         rightCompetitor = rightCompetitors[idx];
     });
     speed.addEventListener("change", () => {
+        if (manager.isRacing)
+            return;
         localStorage.setItem("speed", speed.value);
         for (let i = 0; i < leftCompetitors.length; i++) {
             leftCompetitors[i].speed = parseInt(speed.value);
@@ -108,6 +123,8 @@ function manageInputs() {
         }
     });
     arraySize.addEventListener("change", () => {
+        if (manager.isRacing)
+            return;
         localStorage.setItem("arraySize", arraySize.value);
         for (let i = 0; i < leftCompetitors.length; i++) {
             leftCompetitors[i].initialize(arraySize.valueAsNumber, parseInt(speed.value));
@@ -117,6 +134,8 @@ function manageInputs() {
         drawCanvas(false, rightCompetitor);
     });
     start.addEventListener("click", () => {
+        if (manager.isRacing)
+            return;
         let name = competitor1.value;
         let idx = -1;
         if (name == "Bubble Sort")
@@ -151,7 +170,7 @@ function manageInputs() {
         else if (name == "Miracle Sort")
             idx = 6;
         rightCompetitor = rightCompetitors[idx];
-        let manager = new RaceManager(leftCompetitor, rightCompetitor);
+        manager.setCompetitors(leftCompetitor, rightCompetitor);
         manager.startRace();
     });
 }

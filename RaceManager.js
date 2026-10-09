@@ -13,13 +13,19 @@ export class RaceManager {
         this.startTime = 0;
         this.leftTime = 0;
         this.rightTime = 0;
+        this.isRacing = false;
+        this.leftCompetitor = left;
+        this.rightCompetitor = right;
+        this.startTime = Date.now();
+    }
+    setCompetitors(left, right) {
         this.leftCompetitor = left;
         this.rightCompetitor = right;
         this.startTime = Date.now();
     }
     startRace() {
         return __awaiter(this, void 0, void 0, function* () {
-            document.getElementById("cover").classList.add("running");
+            this.isRacing = true;
             this.leftCompetitor.initialize(parseInt(localStorage.getItem("arraySize") || "50"), parseInt(localStorage.getItem("speed") || "1"));
             this.rightCompetitor.initialize(parseInt(localStorage.getItem("arraySize") || "50"), parseInt(localStorage.getItem("speed") || "1"));
             this.startTime = Date.now();
@@ -46,7 +52,7 @@ export class RaceManager {
             else {
                 alert(`They somehow tied at ${leftTime}ms!`);
             }
-            document.getElementById("cover").classList.remove("running");
+            this.isRacing = false;
         });
     }
 }

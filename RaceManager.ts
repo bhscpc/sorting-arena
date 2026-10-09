@@ -6,6 +6,7 @@ export class RaceManager {
     startTime: number = 0;
     leftTime: number = 0;
     rightTime: number = 0;
+    isRacing: boolean = false;
     
     constructor(left: Alg.SortingAlgorithm, right: Alg.SortingAlgorithm) {
         this.leftCompetitor = left;
@@ -13,8 +14,14 @@ export class RaceManager {
         this.startTime = Date.now();
     }
 
+    setCompetitors(left: Alg.SortingAlgorithm, right: Alg.SortingAlgorithm) {
+        this.leftCompetitor = left;
+        this.rightCompetitor = right;
+        this.startTime = Date.now();
+    }
+
     async startRace() {
-        document.getElementById("cover")!.classList.add("running");
+        this.isRacing = true;
         this.leftCompetitor.initialize(
             parseInt(localStorage.getItem("arraySize") || "50"),
             parseInt(localStorage.getItem("speed") || "1")
@@ -49,6 +56,6 @@ export class RaceManager {
             alert(`They somehow tied at ${leftTime}ms!`);
         }
 
-        document.getElementById("cover")!.classList.remove("running");
+        this.isRacing = false;
     }
 }   
