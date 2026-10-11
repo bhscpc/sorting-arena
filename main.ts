@@ -199,6 +199,14 @@ export function drawCanvas(left: Boolean, competitor: Alg.SortingAlgorithm) {
         context.fillRect(x, y, barWidth, barHeight);
     }
 }
+
+const xButton: HTMLElement = document.getElementById("x-button")!;
+const results: HTMLElement = document.getElementById("results")!;
+
+xButton.addEventListener("click", () => {
+    results.classList.remove("show");
+});
+
 drawCanvas(true, leftCompetitor);
 drawCanvas(false, rightCompetitor);
 

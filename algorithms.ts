@@ -5,6 +5,7 @@ export class SortingAlgorithm {
     array: number[];
     speed: number;
     left: boolean;
+    name: string;
 
     constructor(left: boolean) {
         this.delay = 0;
@@ -12,6 +13,7 @@ export class SortingAlgorithm {
         this.speed = 1;
         this.left = left;
         this.initialize(50, 1);
+        this.name = "Sorting Algorithm";
     }
     async compare(a: number, b:number): Promise<number> {
         this.delay += 1;
@@ -58,6 +60,10 @@ export class SortingAlgorithm {
 }
 
 export class BubbleSort extends SortingAlgorithm {
+    constructor(left: boolean){
+        super(left);
+        this.name = "Bubble Sort";
+    }
     async sort(): Promise<void> {
         let n = this.array.length;
         for (let i = 0; i < n - 1; i++) {
@@ -71,6 +77,11 @@ export class BubbleSort extends SortingAlgorithm {
 }
 
 export class SelectionSort extends SortingAlgorithm {
+
+    constructor(left: boolean){
+        super(left);
+        this.name = "Selection Sort";
+    }
     async sort(): Promise<void> {
         let n = this.array.length;
         for (let i = 0; i < n - 1; i++) {
@@ -88,6 +99,10 @@ export class SelectionSort extends SortingAlgorithm {
 }
 
 export class InsertionSort extends SortingAlgorithm {
+    constructor(left: boolean){
+        super(left);
+        this.name = "Insertion Sort";
+    }
     async sort(): Promise<void> {
         let n = this.array.length;
         for (let i = 1; i < n; i++) {
@@ -102,6 +117,10 @@ export class InsertionSort extends SortingAlgorithm {
 }
 
 export class MergeSort extends SortingAlgorithm {
+    constructor(left: boolean){
+        super(left);
+        this.name = "Merge Sort";
+    }
     async sort(): Promise<void> {
         await this.mergeSort(0, this.array.length - 1);
     }
@@ -147,6 +166,10 @@ export class MergeSort extends SortingAlgorithm {
 }
 
 export class QuickSort extends SortingAlgorithm {
+    constructor(left: boolean){
+        super(left);
+        this.name = "Quick Sort";
+    }
     async sort(): Promise<void> {
         await this.quickSort(0, this.array.length - 1);
     }
@@ -173,6 +196,10 @@ export class QuickSort extends SortingAlgorithm {
 }
 
 export class BogoSort extends SortingAlgorithm {
+    constructor(left: boolean){
+        super(left);
+        this.name = "Bogo Sort";
+    }
     async sort(): Promise<void> {
         while (!(await this.isSorted())) {
             for (let i = this.array.length - 1; i > 0; i--) {
@@ -192,7 +219,11 @@ export class BogoSort extends SortingAlgorithm {
 }
 
 export class MiracleSort extends SortingAlgorithm {
-    async sort(): Promise<void> {
+    constructor(left: boolean){
+        super(left);
+        this.name = "Miracle Sort";
+    }
+    async sort(): Promise<void> {   
         while (!(await this.isSorted())) {}
     }
     private async isSorted(): Promise<boolean> {

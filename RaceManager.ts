@@ -48,14 +48,30 @@ export class RaceManager {
 
         const racePromises = [leftRacePromise, rightRacePromise];
         const [leftTime, rightTime] = await Promise.all(racePromises);
-        if (leftTime! < rightTime!) {
-            alert(`Left competitor finished first in ${leftTime}ms. Right competitor took ${rightTime}ms.`);
-        } else if (rightTime! < leftTime!) {
-            alert(`Right competitor finished first in ${rightTime}ms. Left competitor took ${leftTime}ms.`);
-        } else {
-            alert(`They somehow tied at ${leftTime}ms!`);
-        }
 
+        const results: HTMLElement = document.getElementById("results")!;
+
+        const winnerSide: HTMLElement = document.getElementById("winner-side")!;
+        const winnerName: HTMLElement = document.getElementById("winner-name")!;
+        const competitor1Time: HTMLElement = document.getElementById("finish-time-holder-1")!;
+        const competitor2Time: HTMLElement = document.getElementById("finish-time-holder-2")!;
+        const competitor1Name: HTMLElement = document.getElementById("algorithm-name-1")!;
+        const competitor2Name: HTMLElement = document.getElementById("algorithm-name-2")!;
+        competitor1Time.innerText = `${leftTime! / 1000} seconds`;
+        competitor2Time.innerText = `${rightTime! / 1000} seconds`;
+        competitor1Name.innerText = this.leftCompetitor.name;
+        competitor2Name.innerText = this.rightCompetitor.name;
+
+        if (leftTime! < rightTime!) {
+            //alert(`Left competitor finished first in ${leftTime}ms. Right competitor took ${rightTime}ms.`);
+            winnerSide.innerText = "Left";
+            winnerName.innerText = this.leftCompetitor.name;
+        } else {
+            //alert(`Right competitor finished first in ${rightTime}ms. Left competitor took ${leftTime}ms.`);
+            winnerSide.innerText = "Right";
+            winnerName.innerText = this.rightCompetitor.name;
+        }
+        results.classList.add("show");
         this.isRacing = false;
     }
 }   

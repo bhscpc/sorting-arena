@@ -65,9 +65,33 @@ How to use:
                 <canvas id="sortingCanvas2" width="800" height="400"></canvas>
             </div>
         </main>
+        
+        <div id="results">
+            <h2 id="winner-title"></h2><h2 id="winner-side"></h2> (<h2 id="winner-name"></h2>) Competitor Won!</h2>
+            <div id="competitor1-holder">
+                <span class="finish-time-holder" id="finish-time-holder-1">
+                    Competitor 1 finish time: <p id="finish-time-1"></p>
+                </span>
+                <span class="algorithm-name" id="algorithm-name-holder-1">
+                    Competitor 1 algorithm: <p id="algorithm-name-1"></p>
+                </span>
+            </div>
+            <div id="competitor2-holder">
+                <span class="finish-time-holder" id="finish-time-holder-2">
+                    Competitor 2 finish time: <p id="finish-time-2"></p>
+                </span>
+                <span class="algorithm-name" id="algorithm-name-holder-2">
+                    Competitor 2 algorithm: <p id="algorithm-name-2"></p>
+                </span>
+            </div>
+            <svg id="x-button" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
 
         <footer>
-            Created by <a href="https://github.com/Ash-ioL">Ash-ioL</a> :D
+            Copyright &copy; 2026 <a href="https://github.com/Ash-ioL">Ash-ioL</a> and Burbank High School Competitive Programming Club. All rights reserved.
         </footer>
 
         <script type="module" src="main.js" defer></script>

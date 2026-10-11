@@ -195,6 +195,11 @@ export function drawCanvas(left, competitor) {
         context.fillRect(x, y, barWidth, barHeight);
     }
 }
+const xButton = document.getElementById("x-button");
+const results = document.getElementById("results");
+xButton.addEventListener("click", () => {
+    results.classList.remove("show");
+});
 drawCanvas(true, leftCompetitor);
 drawCanvas(false, rightCompetitor);
 manageInputs();

@@ -15,6 +15,7 @@ export class SortingAlgorithm {
         this.speed = 1;
         this.left = left;
         this.initialize(50, 1);
+        this.name = "Sorting Algorithm";
     }
     compare(a, b) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -65,6 +66,10 @@ export class SortingAlgorithm {
     }
 }
 export class BubbleSort extends SortingAlgorithm {
+    constructor(left) {
+        super(left);
+        this.name = "Bubble Sort";
+    }
     sort() {
         return __awaiter(this, void 0, void 0, function* () {
             let n = this.array.length;
@@ -79,6 +84,10 @@ export class BubbleSort extends SortingAlgorithm {
     }
 }
 export class SelectionSort extends SortingAlgorithm {
+    constructor(left) {
+        super(left);
+        this.name = "Selection Sort";
+    }
     sort() {
         return __awaiter(this, void 0, void 0, function* () {
             let n = this.array.length;
@@ -97,6 +106,10 @@ export class SelectionSort extends SortingAlgorithm {
     }
 }
 export class InsertionSort extends SortingAlgorithm {
+    constructor(left) {
+        super(left);
+        this.name = "Insertion Sort";
+    }
     sort() {
         return __awaiter(this, void 0, void 0, function* () {
             let n = this.array.length;
@@ -112,6 +125,10 @@ export class InsertionSort extends SortingAlgorithm {
     }
 }
 export class MergeSort extends SortingAlgorithm {
+    constructor(left) {
+        super(left);
+        this.name = "Merge Sort";
+    }
     sort() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.mergeSort(0, this.array.length - 1);
@@ -157,6 +174,10 @@ export class MergeSort extends SortingAlgorithm {
     }
 }
 export class QuickSort extends SortingAlgorithm {
+    constructor(left) {
+        super(left);
+        this.name = "Quick Sort";
+    }
     sort() {
         return __awaiter(this, void 0, void 0, function* () {
             yield this.quickSort(0, this.array.length - 1);
@@ -186,6 +207,10 @@ export class QuickSort extends SortingAlgorithm {
     }
 }
 export class BogoSort extends SortingAlgorithm {
+    constructor(left) {
+        super(left);
+        this.name = "Bogo Sort";
+    }
     sort() {
         return __awaiter(this, void 0, void 0, function* () {
             while (!(yield this.isSorted())) {
@@ -208,6 +233,10 @@ export class BogoSort extends SortingAlgorithm {
     }
 }
 export class MiracleSort extends SortingAlgorithm {
+    constructor(left) {
+        super(left);
+        this.name = "Miracle Sort";
+    }
     sort() {
         return __awaiter(this, void 0, void 0, function* () {
             while (!(yield this.isSorted())) { }
