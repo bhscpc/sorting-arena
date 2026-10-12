@@ -67,27 +67,81 @@ How to use:
         </main>
         
         <div id="results">
-            <h2 id="winner-title"></h2><h2 id="winner-side"></h2> (<h2 id="winner-name"></h2>) Competitor Won!</h2>
-            <div id="competitor1-holder">
-                <span class="finish-time-holder" id="finish-time-holder-1">
-                    Competitor 1 finish time: <p id="finish-time-1"></p>
-                </span>
-                <span class="algorithm-name" id="algorithm-name-holder-1">
-                    Competitor 1 algorithm: <p id="algorithm-name-1"></p>
-                </span>
+            <div id="close-container">
+                <svg id="x-button" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </div>
-            <div id="competitor2-holder">
-                <span class="finish-time-holder" id="finish-time-holder-2">
-                    Competitor 2 finish time: <p id="finish-time-2"></p>
-                </span>
-                <span class="algorithm-name" id="algorithm-name-holder-2">
-                    Competitor 2 algorithm: <p id="algorithm-name-2"></p>
-                </span>
+            <div id="overview-container">
+                <div id="left-overview">
+                    <p id="winner-header">WINNER</p>
+                    <h2 id="winner-name"></h2>
+                    <span id="winner-location">
+                        <p id="winner-number"></p>
+                        <div id="location-dot"></div>
+                        <p id="winner-side"></p>
+                    </span>
+                    <p id="time-faster"></p>
+                </div>
+                <div id="vertical-line"></div>
+                <div id="right-overview">
+                    <p id="completion-time"></p>
+                    <span id="time-and-unit"><h1 id="time"></h1><p id="time-unit">s</p></span>
+                    <p id="percent-comparison"><span id="percent-less"></span> <span id="percent-who"></span></p>
+                </div>
             </div>
-            <svg id="x-button" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <div id="specifics-container">
+                <div id="specifics-title">
+                    <h2>Specifics</h2>
+                </div>
+                <div id="metrics">
+                    <div id="metric-rank">
+                        <h6 id="metric-rank-title">Rank</h6>
+                        <p>1</p>
+                        <p>2</p>
+                        <div id="metric-rank-blank"></div>
+                    </div>
+                    <div id="metric-name">
+                        <h6 id="metric-name-title">Name</h6>
+                        <div id="winner-metric-name">
+                            <h2 id="winner-name2"></h2>
+                            <span id="winner-location2">
+                                <p id="winner-numbe2r"></p>
+                                <div id="location-dot-winner"></div>
+                                <p id="winner-side2"></p>
+                            </span>
+                        </div>
+                        <div id="loser-metric-name">
+                            <h2 id="loser-name2"></h2>
+                            <span id="loser-location2">
+                                <p id="loser-numbe2r"></p>
+                                <div id="location-dot-loser"></div>
+                                <p id="loser-side2"></p>
+                            </span>
+                        </div>
+                        <div id="metric-name-blank"></div>
+                    </div>
+                    <div id="metric-elapsed-time">
+                        <h6 id="metric-elapsed-title">Elapsed Time</h6>
+                        <div id="winner-elapsed-time-bar"></div>
+                        <div id="loser-elapsed-time-bar"></div>
+                        <div id="metric-elapsed-labels">
+                            <p id="elapsed-point1"></p>
+                            <p id="elapsed-point2"></p>
+                            <p id="elapsed-point3"></p>
+                            <p id="elapsed-point4"></p>
+                            <p id="elapsed-point5"></p>
+                        </div>
+                    </div>
+                    <div id="metric-seconds">
+                        <h6 id="metric-seconds-title">Seconds</h6>
+                        <p id="winner-seconds"></p>
+                        <p id="loser-seconds"></p>
+                        <div id="metric-seconds-blank"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <footer>
