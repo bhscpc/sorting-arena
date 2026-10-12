@@ -211,6 +211,8 @@ button:hover {
 
 #results {
     display: none;
+    color: white;
+    
 }
 
 #results.show {
