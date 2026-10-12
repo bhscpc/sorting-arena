@@ -22,13 +22,14 @@ export class RaceManager {
 
     async startRace() {
         this.isRacing = true;
+        alert(`${localStorage.getItem("speed")}`)
         this.leftCompetitor.initialize(
-            parseInt(localStorage.getItem("arraySize") || "50"),
+            parseFloat(localStorage.getItem("arraySize") || "50"),
             parseInt(localStorage.getItem("speed") || "1")
         );
         this.rightCompetitor.initialize(
-            parseInt(localStorage.getItem("arraySize") || "50"),
-            parseInt(localStorage.getItem("speed") || "1")
+            parseFloat(localStorage.getItem("arraySize") || "50"),
+            parseFloat(localStorage.getItem("speed") || "1")
         );
         this.startTime = Date.now();
 

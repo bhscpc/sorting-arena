@@ -26,8 +26,9 @@ export class RaceManager {
     startRace() {
         return __awaiter(this, void 0, void 0, function* () {
             this.isRacing = true;
-            this.leftCompetitor.initialize(parseInt(localStorage.getItem("arraySize") || "50"), parseInt(localStorage.getItem("speed") || "1"));
-            this.rightCompetitor.initialize(parseInt(localStorage.getItem("arraySize") || "50"), parseInt(localStorage.getItem("speed") || "1"));
+            alert(`${localStorage.getItem("speed")}`);
+            this.leftCompetitor.initialize(parseFloat(localStorage.getItem("arraySize") || "50"), parseInt(localStorage.getItem("speed") || "1"));
+            this.rightCompetitor.initialize(parseFloat(localStorage.getItem("arraySize") || "50"), parseFloat(localStorage.getItem("speed") || "1"));
             this.startTime = Date.now();
             let leftRacePromise = new Promise((resolve) => {
                 this.leftCompetitor.start().then(() => {
