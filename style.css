@@ -212,10 +212,6 @@ button:hover {
 #results {
     display: none;
     color: white;
-    
-}
-
-#results.show {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -226,4 +222,177 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    & #close-container {
+        & #close-text {
+
+        }
+
+        & #x-button {
+
+        }
+    }
+
+    & #overview-container {
+        & #left-overview {
+            & #winner-header {
+
+            }
+            & #winner-name {
+
+            }
+            & #winner-location {
+                & #winner-number {
+
+                }
+                & #location-dot {
+
+                }
+                & #winner-side {
+
+                }
+            }
+            & #time-faster {
+
+            }
+        }
+
+        & #vertical-line {
+
+        }
+
+        & #right-overview {
+            & #completion-time {
+
+            }
+            & #time-and-unit {
+                & #time {
+
+                }
+                & #time-unit {
+
+                }
+            }
+            & #percent-comparison {
+                & #percent-less {
+
+                }
+                & #percent-who {
+
+                }
+            }
+        }
+    }
+    & #specifics-container {
+        & #specifics-title {
+
+        }
+        & #metrics {
+            & #metric-rank {
+                & #metric-rank-title {
+
+                }
+                & #metric-rank-one {
+
+                }
+                & #metric-rank-two {
+
+                }
+                & #metric-rank-blank {
+
+                }
+            }
+
+            & #metric-name {
+                & #metric-name-title {
+
+                }
+                & #winner-metric-name {
+                    & #winner-name2 {
+
+                    }
+                    & #winner-location2 {
+                        & #winner-numbe2r {
+
+                        }
+                        & #location-dot-winner {
+
+                        }
+                        & #winner-side2 {
+
+                        }
+                    }
+                }
+
+                & #loser-metric-name {
+                    & #loser-name2 {
+
+                    }
+                    & #loser-location2 {
+                        & #loser-numbe2r {
+
+                        }
+                        & #location-dot-loser {
+
+                        }
+                        & #loser-side2 {
+
+                        }
+                    }
+                }
+
+                & #metric-name-blank {
+
+                }
+            }
+
+            & #metric-elapsed-time {
+                & #metric-elapsed-title {
+
+                }
+                & #winner-elapsed-time-bar {
+
+                }
+                & #loser-elapsed-time-bar {
+
+                }
+                & #metric-elapsed-labels {
+                    & #elapsed-point1 {
+
+                    }
+                    & #elapsed-point2 {
+
+                    }
+                    & #elapsed-point3 {
+
+                    }
+                    & #elapsed-point4 {
+
+                    }
+                    & #elapsed-point5 {
+
+                    }
+                }
+            }
+
+            & #metric-seconds {
+                & #metric-seconds-title {
+
+                }
+                & #winner-seconds {
+
+                }
+                & #loser-seconds {
+
+                }
+                & #metric-seconds-blank {
+
+                }
+            }
+        }
+    }
+}
+
+#results.show {
+    
 }

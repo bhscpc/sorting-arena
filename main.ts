@@ -69,7 +69,10 @@ function manageInputs() {
     }
 
     reset.addEventListener("click", () => {
-        if (manager.isRacing) window.location.reload();
+        if (manager.isRacing) {
+            window.location.reload();
+            return;
+        }
 
         localStorage.setItem("competitor1", "Bubble Sort");
         localStorage.setItem("competitor2", "Bubble Sort");
@@ -122,8 +125,8 @@ function manageInputs() {
 
         localStorage.setItem("speed", speed.value);
         for (let i = 0; i < leftCompetitors.length; i++) {
-            leftCompetitors[i]!.speed = parseInt(speed.value);
-            rightCompetitors[i]!.speed = parseInt(speed.value);
+            leftCompetitors[i]!.speed = parseFloat(speed.value);
+            rightCompetitors[i]!.speed = parseFloat(speed.value);
         }
     });
 
@@ -132,8 +135,8 @@ function manageInputs() {
 
         localStorage.setItem("arraySize", arraySize.value);
         for (let i = 0; i < leftCompetitors.length; i++) {
-            leftCompetitors[i]!.initialize(arraySize.valueAsNumber, parseInt(speed.value));
-            rightCompetitors[i]!.initialize(arraySize.valueAsNumber, parseInt(speed.value));
+            leftCompetitors[i]!.initialize(arraySize.valueAsNumber, parseFloat(speed.value));
+            rightCompetitors[i]!.initialize(arraySize.valueAsNumber, parseFloat(speed.value));
         }
         drawCanvas(true, leftCompetitor);
         drawCanvas(false, rightCompetitor);
