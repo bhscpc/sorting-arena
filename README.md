@@ -16,10 +16,6 @@ Sorting arena that lets you visualize 2 sorting algorithms and watch them face o
 
 3. Click "Start Sorting" to begin the sorting process.
 
-### WIP
-
-Currently, this project is at a usable state but has some bugs which still need to be fixed
-
 ## AI Usage Declaration
 
 Gemini was used to show implementations for sorting algorithms to save time, and GitHub Copilot was used for autocomplete.
