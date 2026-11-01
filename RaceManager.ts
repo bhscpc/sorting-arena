@@ -23,7 +23,7 @@ export class RaceManager {
 
     async startRace() {
         this.isRacing = true;
-        //alert(`${localStorage.getItem("speed")}`)
+        // alert(`${localStorage.getItem("speed")}`)
         this.leftCompetitor.initialize(
             parseFloat(localStorage.getItem("arraySize") || "50"),
             parseInt(localStorage.getItem("speed") || "1")
