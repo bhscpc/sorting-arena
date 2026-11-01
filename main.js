@@ -32,6 +32,7 @@ function manageInputs() {
     const speed = document.getElementById("speed");
     const start = document.getElementById("startButton");
     const reset = document.getElementById("resetButton");
+    const speedValue = document.getElementById("speed-value");
     if (localStorage.getItem("competitor1") == null ||
         localStorage.getItem("competitor2") == null ||
         localStorage.getItem("arraySize") == null ||
@@ -41,6 +42,7 @@ function manageInputs() {
         localStorage.setItem("arraySize", "50");
         localStorage.setItem("speed", "1");
         speed.value = "1";
+        speedValue.textContent = speed.value;
         arraySize.value = "50";
         competitor1.value = "Bubble Sort";
         competitor2.value = "Bubble Sort";
@@ -49,6 +51,7 @@ function manageInputs() {
     }
     else {
         speed.value = localStorage.getItem("speed");
+        speedValue.textContent = speed.value;
         arraySize.value = localStorage.getItem("arraySize");
         competitor1.value = localStorage.getItem("competitor1");
         competitor2.value = localStorage.getItem("competitor2");
@@ -65,6 +68,7 @@ function manageInputs() {
         localStorage.setItem("arraySize", "50");
         localStorage.setItem("speed", "1");
         speed.value = "1";
+        speedValue.textContent = speed.value;
         arraySize.value = "50";
         competitor1.value = "Bubble Sort";
         competitor2.value = "Bubble Sort";
@@ -115,10 +119,11 @@ function manageInputs() {
             idx = 6;
         rightCompetitor = rightCompetitors[idx];
     });
-    speed.addEventListener("change", () => {
+    speed.addEventListener("input", () => {
         if (manager.isRacing)
             return;
         localStorage.setItem("speed", speed.value);
+        speedValue.textContent = speed.value;
         for (let i = 0; i < leftCompetitors.length; i++) {
             leftCompetitors[i].speed = parseFloat(speed.value);
             rightCompetitors[i].speed = parseFloat(speed.value);
