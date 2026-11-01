@@ -210,207 +210,301 @@ button:hover {
 }
 
 #results {
-    & * {
-        user-select: none;
-    }
-    display: none;
-    color: white;
-    height: 100%;
+    display: flex;
     position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    inset: 0;
+    z-index: 1000;
+
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 3vh;
+
+    width: 100%;
+    height: 100dvh;
+    padding: 4vh 5.5vw;
+
+    overflow-y: auto;
+    color: #f0f2f5;
+    background-color: #0b0e11;
+}
+
+#results.show {
+    display: flex;
+}
+
+#results * {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+#close-container {
+    position: absolute;
+    top: 4vh;
+    right: 5.5vw;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    padding: 0.5rem 0.7rem;
+    border: 1px solid #29313b;
+    border-radius: 0.5rem;
+    background-color: #12171d;
+
+    transition: background-color 0.2s ease;
+}
+
+#close-container:hover {
+    background-color: #1a2028;
+    cursor: pointer;
+}
+
+#close-text {
+    color: #a8b1be;
+    font-size: 0.9rem;
+}
+
+#x-button {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#overview-container {
+    display: flex;
+    flex: 0 0 35vh;
+    align-items: stretch;
+    gap: 3.5vw;
+
+    padding: 4vh 2.7vw;
+
+    border: 1px solid #354b32;
+    border-radius: 1rem;
+    background-color: #17251b;
+}
+
+#left-overview {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+#right-overview {
+    display: flex;
+    flex: 0 0 42%;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+
+    padding-left: 3.5vw;
+    border-left: 2px solid #34452f;
+}
+
+.green {
+    color: #b7f45b;
+}
+
+.white {
+    color: #f0f2f5;
+}
+
+.gray {
+    color: #8993a2;
+}
+
+#winner-header {
+    margin-bottom: 1.5vh;
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#winner-name {
+    margin-bottom: 1vh;
+    font-size: clamp(1.8rem, 3.2vw, 3rem);
+    font-weight: 650;
+}
+
+#winner-location,
+#winner-location2,
+#loser-location2 {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+#winner-location {
+    margin-bottom: 2vh;
+}
+
+#winner-location p,
+#winner-location2 p,
+#loser-location2 p {
+    font-size: 0.95rem;
+}
+
+#location-dot,
+#location-dot-winner,
+#location-dot-loser {
+    width: 4px;
+    height: 4px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+#time-faster {
+    font-size: 0.95rem;
+}
+
+#completion-time {
+    margin-bottom: 1vh;
+    font-family: monospace;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+#time-and-unit {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+}
+
+#time {
+    margin: 0;
+    font-size: clamp(3rem, 6.5vw, 6rem);
+    font-weight: 550;
+    line-height: 1.15;
+    text-align: left;
+}
+
+#time-unit {
+    font-size: 1.3rem;
+}
+
+#percent-comparison {
+    margin-top: 1.5vh;
+    font-size: 0.9rem;
+}
+
+#percent-less {
+    font-size: 1rem;
+}
+
+#specifics-container {
+    display: flex;
+    flex: 0 0 35vh;
+    flex-direction: column;
+    gap: 2vh;
+    min-height: 0;
+}
+
+#specifics-title h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+#metrics {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(11rem, 0.8fr) minmax(10rem, 2fr) 7rem;
+    gap: 1.5rem;
+
+    flex: 1;
+    min-height: 0;
+    padding: 3vh 2vw;
+
+    border: 1px solid #28313b;
+    border-radius: 1rem;
+    background-color: #12171d;
+}
+
+#metric-rank,
+#metric-name,
+#metric-elapsed-time,
+#metric-seconds {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    min-width: 0;
+}
+
+#metrics h6 {
+    margin-bottom: 2.5vh;
+    color: #8993a2;
+    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#metric-rank {
+    gap: 3vh;
+    padding-top: 0.5rem;
+}
+
+#metric-rank-one,
+#metric-rank-two {
+    font-family: monospace;
+    font-size: 0.95rem;
+}
+
+#winner-metric-name,
+#loser-metric-name {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 2.5vh;
+}
+
+#winner-name2,
+#loser-name2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#metric-elapsed-time {
     position: relative;
+}
 
-    & #close-container {
-        position: absolute;
-        top: 0;
-        right: 0;
-        display: flex;
-        border-radius: 0.5rem;
-        border: 1px solid white;
-        align-items: center;
-        padding: 0.5rem;
-        padding-right: 0.3rem;
-        box-sizing: border-box;
-        transition: border-width 0.2s ease;
+#winner-elapsed-time-bar,
+#loser-elapsed-time-bar {
+    width: 100%;
+    height: 0.65rem;
+    flex-shrink: 0;
+    border-radius: 3px;
+}
 
-        &:hover {
-            border-width: 1.5px;
-            cursor: pointer;
-        }
+#winner-elapsed-time-bar {
+    margin-top: 1vh;
+    background-color: #b7f45b;
+}
 
-        & #close-text {
-            
-        }
+#loser-elapsed-time-bar {
+    margin-top: 5vh;
+    background-color: #687486;
+}
 
-        & #x-button {
+#metric-elapsed-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 2vh;
+    font-family: monospace;
+    font-size: 0.7rem;
+}
 
-        }
-    }
+#metric-seconds {
+    align-items: flex-end;
+    text-align: right;
+}
 
-    & #overview-container {
-        & #left-overview {
-            & #winner-header {
-                
-            }
-            & #winner-name {
-
-            }
-            & #winner-location {
-                & #winner-number {
-
-                }
-                & #location-dot {
-
-                }
-                & #winner-side {
-
-                }
-            }
-            & #time-faster {
-
-            }
-        }
-
-        & #vertical-line {
-
-        }
-
-        & #right-overview {
-            & #completion-time {
-
-            }
-            & #time-and-unit {
-                & #time {
-
-                }
-                & #time-unit {
-
-                }
-            }
-            & #percent-comparison {
-                & #percent-less {
-
-                }
-                & #percent-who {
-
-                }
-            }
-        }
-    }
-    & #specifics-container {
-        & #specifics-title {
-
-        }
-        & #metrics {
-            & #metric-rank {
-                & #metric-rank-title {
-
-                }
-                & #metric-rank-one {
-
-                }
-                & #metric-rank-two {
-
-                }
-                & #metric-rank-blank {
-
-                }
-            }
-
-            & #metric-name {
-                & #metric-name-title {
-
-                }
-                & #winner-metric-name {
-                    & #winner-name2 {
-
-                    }
-                    & #winner-location2 {
-                        & #winner-numbe2r {
-
-                        }
-                        & #location-dot-winner {
-
-                        }
-                        & #winner-side2 {
-
-                        }
-                    }
-                }
-
-                & #loser-metric-name {
-                    & #loser-name2 {
-
-                    }
-                    & #loser-location2 {
-                        & #loser-numbe2r {
-
-                        }
-                        & #location-dot-loser {
-
-                        }
-                        & #loser-side2 {
-
-                        }
-                    }
-                }
-
-                & #metric-name-blank {
-
-                }
-            }
-
-            & #metric-elapsed-time {
-                & #metric-elapsed-title {
-
-                }
-                & #winner-elapsed-time-bar {
-
-                }
-                & #loser-elapsed-time-bar {
-
-                }
-                & #metric-elapsed-labels {
-                    & #elapsed-point1 {
-
-                    }
-                    & #elapsed-point2 {
-
-                    }
-                    & #elapsed-point3 {
-
-                    }
-                    & #elapsed-point4 {
-
-                    }
-                    & #elapsed-point5 {
-
-                    }
-                }
-            }
-
-            & #metric-seconds {
-                & #metric-seconds-title {
-
-                }
-                & #winner-seconds {
-
-                }
-                & #loser-seconds {
-
-                }
-                & #metric-seconds-blank {
-
-                }
-            }
-        }
-    }
+#winner-seconds,
+#loser-seconds {
+    margin-bottom: 4.5vh;
+    font-family: monospace;
+    font-size: 1.5rem;
+    white-space: nowrap;
 }
 
 #results.show {
