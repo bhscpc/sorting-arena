@@ -29,3 +29,8 @@ Gemini was used to show implementations for sorting algorithms to save time, and
 - Typescript
 - HTML
 - CSS
+
+## Examples
+
+<img width="1464" height="734" alt="image" src="https://github.com/user-attachments/assets/962be3c2-ffd4-4cf9-84ba-da1831f74746" />
+
